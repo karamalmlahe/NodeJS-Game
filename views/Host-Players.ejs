@@ -1,0 +1,70 @@
+<%- include ('./partials/header.ejs') %>
+<div class="Host-Players">
+<table align="center"> 
+    <tr>
+        <th style="width: 5%;">#</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Score</th>
+        <th>Delete</th>
+    </tr>
+<% if(Players.length > 0) {%>
+    <center><h1 class="Players">Players List</h1></center>
+    <% for( var i = 0; i < Players.length; i++ ) {%> 
+          <tr>
+              <td style="width: 5%;"><%=i+1%>.</td>
+              <td><%= Players[i].name%></td>
+              <td><%= Players[i].Age%></td>
+              <td><%= Players[i].Score%></td>
+              <td id="delete" data-id= <%= Players[i]._id%>> <img id="delete" data-id= <%= Players[i]._id%> src="./../Images/Delete.png"alt="Delete"style="width: 50px; height:50px"></td>
+          </tr>
+        <% } %>
+    <% } else {%>
+        <center><h1 class="Players">No Players</h1></center>
+    <% }%>
+</table>
+</div>
+<div class="Host-Contant">
+    <center><h1 class="Players">Contact Us  List</h1></center>
+    <% for( var i = 0; i < contactUs.length; i++ ) {%> 
+    <div class="Contant">
+        <p style="margin-bottom: 20px;" class="ContantText"><span>Name : </span><%= contactUs[i].Name%></p>
+        <hr style="margin-top: 0px;">
+        <p class="ContantText"><span>Message : </span><%= contactUs[i].Message%></p>
+        <a href="mailto: <%= contactUs[i].Email%>"  id="deleteC"class="button" data-id= <%= contactUs[i]._id%>>Reply And Delete</a>
+    </div>
+    <% } %>
+</div>
+    <script>
+    const deleted = document.querySelectorAll('#delete')
+    
+    for(let i = 0; i <  deleted.length; i++)
+      deleted[i].addEventListener('click', (e) => {
+        // alert(deletedC[i])
+        let id = e.target.dataset.id
+        const endpoint = `/Player/${id}`
+        
+        fetch(endpoint,{method: 'DELETE'})
+        .then(response => response.json()
+        .then(data => window.location.reload())
+        )
+        .catch(e => console.log(e))
+
+    })
+    const deletedC = document.querySelectorAll('#deleteC')
+    
+    for(let i = 0; i <  deletedC.length; i++)
+        deletedC[i].addEventListener('click', (e) => {
+        let id = e.target.dataset.id
+        const endpoint = `/contactUs/${id}`
+        
+        fetch(endpoint,{method: 'DELETE'})
+        .then(response => response.json()
+        .then(data => window.location.reload())
+        )
+        .catch(e => console.log(e))
+
+    })
+    </script>
+</body>
+</html>

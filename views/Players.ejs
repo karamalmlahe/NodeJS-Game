@@ -1,0 +1,23 @@
+<%- include ('./partials/header.ejs') %>
+<table align="center"> 
+    <tr>
+        <th style="width: 5%;">#</th>
+        <th >Name</th>
+        <th>Age</th>
+        <th>Score</th>
+    </tr>
+<% if(Players.length > 0) {%>
+    <center><h1 class="Players">Players List</h1></center>
+        <% for( var i = 0; i < Players.length && i<10; i++ ) {%> 
+          <tr>
+              <td style="width: 5%;"><%=i+1%>.</td>
+              <td><%= Players[i].name%></td>
+              <td><%= Players[i].Age%></td>
+              <td><%= Players[i].Score%></td>
+          </tr>
+        <% } %>
+    <% } else {%>
+        <center><h1 class="Players">No Players</h1></center>
+    <% }%>    
+</body>
+</html>

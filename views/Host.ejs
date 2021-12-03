@@ -1,0 +1,29 @@
+<%- include('./partials/header.ejs') %>
+<center>
+    <p id="HostP">Host Page</p>
+    <form  action="/Host" method="POST" >
+        <div id="Host">
+            <h3 id="LoginF">Login</h3>
+                <hr/>
+            <input type='text' id='UserName' name='UserName' value='Karam'placeholder="UserName :"/>
+            <br />
+            <input type='password' id='Password' name='Password' value='1234' placeholder="Password :"/>
+            <br />
+            <input type='button' onclick="CheckUserPass()" id="Login" value="Login" />
+            <p style="font-size:20px;color:red;background-color: white;margin:10px;width:260px;" id="ErrorMessage2"></p>
+            <button id="UserPass" style="display:none;"></button>
+        </div>
+    </form> 
+</center>
+<script>
+    function CheckUserPass(){
+    var user =document.getElementById('UserName').value;
+    var pass =document.getElementById('Password').value;
+    if(user=='Karam'&&pass=='1234'){
+        document.getElementById('UserPass').click();
+    }
+    else document.getElementById('ErrorMessage2').innerHTML='Please Check Your Username And Passowrd.';
+}
+</script>
+</body>
+</html>

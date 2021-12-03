@@ -1,0 +1,21 @@
+<%- include('./partials/header.ejs') %>
+    <align="left">
+    <div id="Game" >
+      <form  action="/new-game" method="POST" >
+            <input type='text' id='name' name='name' placeholder="Name : "/>
+            <br/>
+            <input type='number'  id='Age' name='Age' placeholder="Age : "/>
+            <br/>
+            <input type='button' onclick="TestInput()" id="start" value="Start" />
+
+
+            <input type="text" id="Score" name="Score" value="0" style="display: none" readonly>
+            <button id="save" style="display: none">Save</button>
+
+
+          <p style="font-size:20px;color:red;background-color: white;margin:10px;width:260px;" id="ErrorMessage"></p>
+      </form>
+    </div>
+    </center>
+</body>
+</html>
