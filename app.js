@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const dbConn = "mongodb+srv://karam:1234@cluster0.fttmp.mongodb.net/GamePlay?retryWrites=true&w=majority"
+const dbConn = "mongodb+srv://Karam:Karam123@cluster0.spnyj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 const mongoose = require('mongoose') 
 const playerRouter=require('./routes/playerRoutes')
 const contactRoutes=require('./routes/contactRoutes')
